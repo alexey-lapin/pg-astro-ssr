@@ -1,19 +1,22 @@
-import { Context } from "https://edge.netlify.com";
+import {Context} from "https://edge.netlify.com";
+
+// Search for the placeholder
+const regex = /COUNTRYNAME/i;
 
 export default async (request: Request, context: Context) => {
-  console.log("new request context" + JSON.stringify(context))
-  
-  // Get the page content
-  const response = await context.next();
-  const page = await response.text();
+    console.log("new request context" + JSON.stringify(context))
 
-  // Search for the placeholder
-  const regex = /COUNTRYNAME/i;
+    // Get the page content
+    const response = await context.next();
+    let page = await response.text();
 
-  // Replace the content
-  const countryName = context.geo?.country?.name || "somewhere in the world";
+    let content: String = response.headers.get("Content-Type") ?? "";
+    if (content.toLowerCase().includes("text/html")) {
+        // Replace the content
+        const countryName = context.geo?.country?.name || "somewhere in the world";
+        page = page.replace(regex, countryName);
+    }
 
-  const updatedPage = page.replace(regex, countryName);
-  return new Response(updatedPage, response);
+    return new Response(page, response);
 };
  
