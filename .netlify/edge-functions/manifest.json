@@ -1,0 +1,41 @@
+{
+  "functions": [
+    {
+      "function": "entry",
+      "path": "/"
+    },
+    {
+      "function": "entry",
+      "path": "/rss.xml"
+    },
+    {
+      "function": "entry",
+      "path": "/about"
+    },
+    {
+      "function": "entry",
+      "path": "/blog/markdown-style-guide"
+    },
+    {
+      "function": "entry",
+      "path": "/blog/second-post"
+    },
+    {
+      "function": "entry",
+      "path": "/blog/first-post"
+    },
+    {
+      "function": "entry",
+      "path": "/blog/third-post"
+    },
+    {
+      "function": "entry",
+      "path": "/blog/using-mdx"
+    },
+    {
+      "function": "entry",
+      "path": "/blog"
+    }
+  ],
+  "version": 1
+}
