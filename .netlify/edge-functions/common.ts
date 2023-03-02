@@ -15,8 +15,8 @@ export default async (request: Request, context: Context) => {
         // Replace the content
         const countryName = context.geo?.country?.name || "somewhere in the world";
         page = page.replace(regex, countryName);
+        return new Response(page, response);
     }
 
-    return new Response(page, response);
 };
  
